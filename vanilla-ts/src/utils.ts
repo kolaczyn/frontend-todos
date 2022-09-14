@@ -8,8 +8,9 @@ export const createLabel = (label: string) => {
 
 export const createRemoveButton = (id: string) => {
   const btnEl = document.createElement("button");
+  btnEl.className = "remove-todo-btn";
   btnEl.innerText = "rm";
-  btnEl.setAttribute("data-id", id);
+  btnEl.setAttribute("data-todo-id", id);
   return btnEl;
 };
 

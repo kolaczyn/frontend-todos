@@ -12,6 +12,17 @@ const addTodoButton =
 const inputElement = document.querySelector<HTMLInputElement>("#todo-input")!;
 const listElement = document.querySelector<HTMLUListElement>("#todo-list")!;
 
+const addRmEventListeners = () => {
+  document
+    .querySelectorAll<HTMLButtonElement>(".remove-todo-btn")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const todoId = btn.getAttribute("data-todo-id");
+        console.table(todoId);
+      });
+    });
+};
+
 const updateTodos = () => {
   listElement.innerHTML = "";
   todos.forEach((todo) => {
@@ -25,6 +36,7 @@ addTodoButton!.addEventListener("click", () => {
   todos.push({ id, label });
 
   updateTodos();
+  addRmEventListeners();
 
   inputElement!.value = "";
 });
