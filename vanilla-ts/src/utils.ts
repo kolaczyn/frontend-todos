@@ -1,8 +1,24 @@
 export const generateId = () => Math.random().toString().slice(2, 6);
 
-export const createLi = (text: string) => {
-  const liElement = document.createElement("li");
-  liElement.innerText = text;
+export const createLabel = (label: string) => {
+  const spanEl = document.createElement("span");
+  spanEl.innerText = label;
+  return spanEl;
+};
 
-  return liElement;
+export const createRemoveButton = (id: string) => {
+  const btnEl = document.createElement("button");
+  btnEl.innerText = "rm";
+  btnEl.setAttribute("data-id", id);
+  return btnEl;
+};
+
+export const createLi = (text: string, id: string) => {
+  const liEl = document.createElement("li");
+  const spanEl = createLabel(text);
+  const rmBtn = createRemoveButton(id);
+  [spanEl, rmBtn].forEach((el) => {
+    liEl.appendChild(el);
+  });
+  return liEl;
 };

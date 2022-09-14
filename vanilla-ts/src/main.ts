@@ -15,7 +15,7 @@ const listElement = document.querySelector<HTMLUListElement>("#todo-list")!;
 const updateTodos = () => {
   listElement.innerHTML = "";
   todos.forEach((todo) => {
-    listElement.appendChild(createLi(`${todo.id}. ${todo.label}`));
+    listElement.appendChild(createLi(`${todo.id}. ${todo.label}`, todo.id));
   });
 };
 
