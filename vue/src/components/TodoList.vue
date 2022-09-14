@@ -14,6 +14,10 @@ const handleEnter = () => {
   todoList.value.push({ label: input.value, id: generateId() });
   input.value = "";
 };
+
+const handleRemove = (id: string) => {
+  todoList.value = todoList.value.filter((todo) => todo.id !== id);
+};
 </script>
 
 <template>
@@ -21,8 +25,10 @@ const handleEnter = () => {
   <button @click="increment">{{ count }}</button>
   <input v-model="input" @keydown.enter="handleEnter" />
   <ul>
-    <li v-for="todo in todoList" :key="todo.id">
-      id:{{ todo.id }}:{{ todo.label }}
+    <li v-for="{ id, label } in todoList" :key="id">
+      <span> id:{{ id }}:{{ label }} </span>
+      <!-- TODO make this a seperate component -->
+      <button @click="handleRemove(id)">rm</button>
     </li>
   </ul>
 </template>
