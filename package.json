@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "lodash.uniqueid": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/lodash.uniqueid": "^4.0.7"
+  }
+}
