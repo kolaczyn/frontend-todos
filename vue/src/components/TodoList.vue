@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { TodoList } from "../types";
 import { generateId } from "../utils";
+import AppButton from "./AppButton.vue";
 
 defineProps<{ title: string }>();
 const count = ref(0);
@@ -27,8 +28,7 @@ const handleRemove = (id: string) => {
   <ul>
     <li v-for="{ id, label } in todoList" :key="id">
       <span> id:{{ id }}:{{ label }} </span>
-      <!-- TODO make this a seperate component -->
-      <button @click="handleRemove(id)">rm</button>
+      <AppButton @click="handleRemove(id)" label="rm"></AppButton>
     </li>
   </ul>
 </template>
